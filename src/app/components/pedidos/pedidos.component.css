@@ -1,0 +1,11 @@
+.icono{
+    font-size: large;
+    color:cadetblue;
+    cursor:pointer ;
+}
+
+.cabecera{
+    text-align: center;
+    background-color: darkcyan;
+    color: white;
+}

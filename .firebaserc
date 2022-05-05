@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ionic-laesquina": {
+      "hosting": {
+        "crud": [
+          "ionic-laesquina"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ionic-laesquina"
+  }
+}

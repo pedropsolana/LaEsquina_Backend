@@ -1,0 +1,45 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ titulo }}
+                        <div *ngIf="loading" class="spinner-border float-right" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON
+                        OBLIGATORIOS</span>
+                    <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEditarProducto()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" formControlName="nombre"
+                                    placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <select name="selCat" class="form-control form-control-lg" formControlName="categoria"
+                                placeholder="Categoria">
+                                    <option [value]='item.id' *ngFor="let item of category">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <input type="file" id="examinar" name="adjunto" accept=".jpg,.png,.jpeg"
+                            class="form-control form-control-lg mt-3" formControlName="imagen"
+                            (change)="cargarImagen($event)" />
+                        <label for="examinar" class="css-button-3d--grey">Añadir Imagen</label>
+                        <img src="{{img}}">
+
+                        <input type="number" class="form-control form-control-lg mt-3" formControlName="pvp"
+                            placeholder="PVP">
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg mr-3" (click)="eliminarImagen()"
+                                routerLink="/list-empleados">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

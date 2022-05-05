@@ -1,0 +1,47 @@
+<div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="h3">Listado de Platos</span> 
+          </div>
+          <div class="col-md-6">   
+          <label> Categorias: &nbsp; </label>  
+          <select name="selCat" (change)="recogerPlatos($event.target.value)">
+            <option value=99>Todos</option>
+            <option [value]="item.id" *ngFor="let item of category">{{item.name}}</option>
+          </select>
+          &nbsp;
+          <i class="fas fa-solid fa-filter fa-lg filtros" alt="Filtrar por Categoria"></i>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-dark btn-lg float-right" routerLink="/create-platos">Agregar</button>
+        </div>
+      </div>
+      <div>
+        <h5 style="margin-top: 30px;" *ngIf="products.length == 0">No hay datos para mostrar</h5>
+        <table *ngIf="products.length > 0" class="table table-striped mt-5">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Imagen</th>
+              <th>PVP</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products">
+              <td>{{ p.name }}</td>
+              <td><img [src]=" p.img" /></td>
+              <td>{{ p.price }}</td>
+              <td>
+                <i class="fas fa-edit fa-lg text-info mr-2 iconos" [routerLink]="['/editPlatos/', p.key]"></i>
+                <i (click)="eliminarPlato(p.key, p.nomimg)" class="fas fa-trash-alt fa-lg text-danger iconos"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,44 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{ titulo }}
+                        <div *ngIf="loading" class="spinner-border float-right" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submitted && createCategoria.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON
+                        OBLIGATORIOS</span>
+                    <form class="mt-4" [formGroup]="createCategoria" (ngSubmit)="agregarEditarCategoria()">
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="number" class="form-control form-control-lg" formControlName="id"
+                                    placeholder="Codigo">
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control form-control-lg" formControlName="nombre"
+                                    placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="file" id="examinar" name="adjunto" accept=".jpg,.png,.jpeg"
+                                    class="form-control form-control-lg mt-3" formControlName="imagen"
+                                    (change)="cargarImagen($event)"  />
+                                <label for="examinar" class="css-button-3d--grey">Añadir Imagen</label>
+                                <img src="{{img}}">
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg mr-3"
+                                routerLink="/list-categorias">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

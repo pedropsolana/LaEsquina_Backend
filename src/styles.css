@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+body {
+    background:  #3d3d3d94;
+   background-repeat: repeat;
+   background-position: center;
+   background-size: cover;
+   height: 100vh;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

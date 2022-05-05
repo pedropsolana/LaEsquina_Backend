@@ -1,0 +1,86 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <span class="h3">PEDIDOS</span>
+                </div>
+                <div class="col-md-10">
+                    <label> Filtrar por dia: &nbsp; </label>
+                    <input type="date" name="filtro" (change)="recogerOrdersporDia($event.target.value)">
+                    &nbsp;
+                    <i class="fas fa-solid fa-filter fa-lg filtros" alt="Filtrar por Categoria"></i>
+                </div>
+            </div>
+            <div>
+                <h5 style="margin-top: 30px;" *ngIf="orders.length == 0">No hay datos para mostrar</h5>
+                <table *ngIf="orders.length > 0" class="table table-striped mt-5">
+                    <thead>
+                        <tr class="cabecera">
+                            <th>CLIENTE</th>
+                            <th>FECHA DE ENTRADA</th>
+                            <th>HORA DE ENTRADA</th>
+                            <th>PRODUCTOS</th>
+                            <th>TOTAL</th>
+                            <th>ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let o of orders">
+                            <!-- Ventana para visualizar datos del cliente -->
+                            <td>
+                                <i class="fas fa-solid fa-address-card icono" title="Ver Ficha"
+                                    (click)="openPopup(o.email)"></i>
+                                &nbsp;{{ o.name }}
+                                <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Datos del Cliente</h4>
+                                            </div>
+                                            <div class="modal-body" *ngFor="let c of cliente">
+                                                <p>Nombre: &nbsp;{{c.name}} &nbsp;{{c.apellidos}}</p>
+                                                <p>Direccion:&nbsp;{{c.address}}</p>
+                                                <p>Poblacion:&nbsp;{{c.poblacion}}</p>
+                                                <p>Teléfono:&nbsp;{{c.telf}}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                                                    Cerrar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{ o.date }}</td>
+                            <td>{{ o.time }}</td>
+                            <td>
+                        <tr *ngFor="let p of o.products" style="background: none;">
+                            {{p.quantity}} &nbsp; {{p.name}}
+                        </tr>
+                        </td>
+                        <td>{{ o.priceOrder }} &nbsp;€</td>
+                        <td>
+                            <button *ngIf="o.estado=='1'"
+                                (click)="cambiaEstado(o.key, o.email, o.name, o.estado, o.priceOrder, o.telf, o.date, o.time, o.products, o.token)"
+                                class="btn btn btn-success btn-sm float-right botones">
+                                Abierto
+                            </button>
+                            <button *ngIf="o.estado=='2'"
+                                (click)="cambiaEstado(o.key, o.email, o.name, o.estado, o.priceOrder, o.telf, o.date, o.time, o.products, o.token)"
+                                class="btn btn-warning btn-sm float-right botones">
+                                En preparacion
+                            </button>
+                            <button *ngIf="o.estado=='3'" class="btn btn-danger btn-sm float-right botones">
+                                Finalizado
+                            </button>
+
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>

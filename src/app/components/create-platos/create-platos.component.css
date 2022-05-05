@@ -1,0 +1,31 @@
+#examinar{
+    display: none;
+}
+img{
+    width: 80px;
+}
+
+.css-button-3d--grey {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #6c757d;
+    box-shadow: 0 5px #495057;
+    }
+    .css-button-3d--grey:hover {
+    box-shadow: 0 3px #495057;
+    top: 1px;
+    }
+    .css-button-3d--grey:active {
+    box-shadow: 0 0 #495057;
+    top: 5px;
+    }
