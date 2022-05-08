@@ -12,7 +12,7 @@
             <option [value]="item.id" *ngFor="let item of category">{{item.name}}</option>
           </select>
           &nbsp;
-          <i class="fas fa-solid fa-filter fa-lg filtros" alt="Filtrar por Categoria"></i>
+          <i class="fas fa-solid fa-filter fa-lg filtros" title="Filtrar por Categoria"></i>
         </div>
         <div class="col-md-2">
           <button class="btn btn-dark btn-lg float-right" routerLink="/create-platos">Agregar</button>
@@ -35,8 +35,8 @@
               <td><img [src]=" p.img" /></td>
               <td>{{ p.price }}</td>
               <td>
-                <i class="fas fa-edit fa-lg text-info mr-2 iconos" [routerLink]="['/editPlatos/', p.key]"></i>
-                <i (click)="eliminarPlato(p.key, p.nomimg)" class="fas fa-trash-alt fa-lg text-danger iconos"></i>
+                <i class="fas fa-edit fa-lg text-info mr-2 iconos" [routerLink]="['/editPlatos/', p.key]" title="Editar Plato"></i>
+                <i (click)="eliminarPlato(p.key, p.nomimg)" class="fas fa-solid fa-trash-alt fa-lg text-danger iconos" title="Eliminar Plato"></i>
               </td>
             </tr>
           </tbody>

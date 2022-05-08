@@ -1,0 +1,73 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Listado de Clientes</span>
+            <h5 style="margin-top: 30px;" *ngIf="clientes.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="clientes.length > 0" class="table table-striped mt-5">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Dirección</th>
+                        <th>Población</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Pedidos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of clientes">
+                        <td>{{ c.name }}</td>
+                        <td>{{ c.apellidos }}</td>
+                        <td>{{ c.address }} </td>
+                        <td>{{ c.poblacion }} </td>
+                        <td>{{ c.email }} </td>
+                        <td>{{ c.telf }} </td>
+                        <td>
+                            <i class="fas fa-shopping-cart fa-lg text-info mr-2 iconos " title="Pedidos del Cliente"
+                                (click)="openPopup(c.email, c.name, c.apellidos)"></i>
+                            <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                                <div class="modal-dialog  modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Pedidos de {{cliente}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-3"><b>FECHA</b></div>
+                                                <div class="col-2"><b>HORA</b></div>
+                                                <div class="col-2"><b>TOTAL</b></div>
+                                                <div class="col-5"><b>PRODUCTOS</b></div>
+                                            </div>
+                                            <div class="row linea"></div>
+                                            <div class="row" *ngFor="let p of pedidos">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col-3">{{p.date}}</div>
+                                                        <div class="col-2">{{p.time}}</div>
+                                                        <div class="col-2">{{p.priceOrder}}€</div>
+                                                        <div class="col-5">
+                                                            <div class="row" *ngFor="let pl of p.products">
+                                                                {{pl.quantity}} &nbsp; {{pl.name}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row linea"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" (click)="closePopup()">
+                                                Cerrar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

@@ -5,6 +5,7 @@ import { ListCategoriasComponent } from './components/list-categorias/list-categ
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { ListPlatosComponent } from './components/list-platos/list-platos.component';
 import { CreatePlatosComponent } from './components/create-platos/create-platos.component';
+import { ListClientesComponent } from './components/list-clientes/list-clientes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pedidos', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'list-categorias', component: ListCategoriasComponent },
   { path: 'create-categoria', component: CreateCategoriaComponent },
   { path: 'editCategoria/:id', component: CreateCategoriaComponent },
+  { path: 'list-clientes', component: ListClientesComponent},
   { path: 'pedidos', component: PedidosComponent },  
   { path: '**', redirectTo: 'pedidos', pathMatch: 'full' },
 ];

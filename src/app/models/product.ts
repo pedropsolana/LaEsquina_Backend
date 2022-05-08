@@ -65,38 +65,38 @@ export class Product implements IProduct {
     /**
      * Devuelve los extras de un producto
      */
-     getExtras() {
+    //  getExtras() {
 
-        const extras = [];
+    //     const extras = [];
 
-        // Recorro los extras
-        forEach(this.extras, extra => {
-            const products = extra.products;
-            // Recorro los productos
-            forEach(products, product => {
+    //     // Recorro los extras
+    //     forEach(this.extras, extra => {
+    //         const products = extra.products;
+    //         // Recorro los productos
+    //         forEach(products, product => {
 
-                // varias opciones
-                if (product.optionSelected) {
-                    extras.push(
-                        {
-                            "name": product.name,
-                            "selected": product.optionSelected.name
-                        }
-                    );
-                    // solo una opcion
-                } else if (product.options[0].activate) {
-                    extras.push(
-                        {
-                            "name": product.name
-                        }
-                    );
-                }
+    //             // varias opciones
+    //             if (product.optionSelected) {
+    //                 extras.push(
+    //                     {
+    //                         "name": product.name,
+    //                         "selected": product.optionSelected.name
+    //                     }
+    //                 );
+    //                 // solo una opcion
+    //             } else if (product.options[0].activate) {
+    //                 extras.push(
+    //                     {
+    //                         "name": product.name
+    //                     }
+    //                 );
+    //             }
 
-            });
-        });
+    //         });
+    //     });
 
-        return extras;
-    }
+    //     return extras;
+    // }
 
     /**
      * Total del producto

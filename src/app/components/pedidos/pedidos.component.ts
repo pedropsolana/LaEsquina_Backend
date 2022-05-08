@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/product';
 import { Pedidos } from 'src/app/interfaces/ipedidos';
 import { NotificationsService } from 'src/app/services/notifications.service';
-import { User } from 'src/app/interfaces/iuser';
+import { IUser } from 'src/app/interfaces/iuser';
 import _ from "lodash";
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { EmailValidator } from '@angular/forms';
@@ -22,7 +22,7 @@ export class PedidosComponent implements OnInit {
 
   // productos a mostrar
   public orders: Pedidos[] = [];
-  public cliente: User[] = [];
+  public cliente: IUser[] = [];
   public platos: Product[] = [];
   public url: Observable<string | null>;
   public dateObj: Date | null;

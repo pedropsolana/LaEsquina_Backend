@@ -6,6 +6,9 @@ export class User implements IUser {
     constructor(data) {
         set(this, 'data', data);
     }
+    $key: string;
+    apellidos: string;
+    poblacion: string;
     telf: string;
     direccion: string;
     nombre: string;

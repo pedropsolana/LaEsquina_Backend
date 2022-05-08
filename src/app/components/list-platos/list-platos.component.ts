@@ -31,7 +31,7 @@ export class ListPlatosComponent implements OnInit {
     this.recogerPlatos(99);
   }
 
-  recogerPlatos(id: any) {
+  recogerPlatos(id: any) { 
     console.log(id);
     // Recojo los productos
     if (id == 99) {

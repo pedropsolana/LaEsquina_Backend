@@ -9,7 +9,7 @@
                     <label> Filtrar por dia: &nbsp; </label>
                     <input type="date" name="filtro" (change)="recogerOrdersporDia($event.target.value)">
                     &nbsp;
-                    <i class="fas fa-solid fa-filter fa-lg filtros" alt="Filtrar por Categoria"></i>
+                    <i class="fas fa-solid fa-filter fa-lg filtros" title="Filtrar por Categoria"></i>
                 </div>
             </div>
             <div>
@@ -31,7 +31,7 @@
                             <td>
                                 <i class="fas fa-solid fa-address-card icono" title="Ver Ficha"
                                     (click)="openPopup(o.email)"></i>
-                                &nbsp;{{ o.name }}
+                                &nbsp;{{ o.name }} 
                                 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
                                     <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
@@ -64,15 +64,15 @@
                         <td>
                             <button *ngIf="o.estado=='1'"
                                 (click)="cambiaEstado(o.key, o.email, o.name, o.estado, o.priceOrder, o.telf, o.date, o.time, o.products, o.token)"
-                                class="btn btn btn-success btn-sm float-right botones">
+                                class="btn btn btn-success btn-sm float-right botones" title="Pulsa para Preparar">
                                 Abierto
                             </button>
                             <button *ngIf="o.estado=='2'"
                                 (click)="cambiaEstado(o.key, o.email, o.name, o.estado, o.priceOrder, o.telf, o.date, o.time, o.products, o.token)"
-                                class="btn btn-warning btn-sm float-right botones">
+                                class="btn btn-warning btn-sm float-right botones" title="Pulsa para Finalizar">
                                 En preparacion
                             </button>
-                            <button *ngIf="o.estado=='3'" class="btn btn-danger btn-sm float-right botones">
+                            <button *ngIf="o.estado=='3'" class="btn btn-danger btn-sm float-right botones" title="Pedido Finalizado">
                                 Finalizado
                             </button>
 

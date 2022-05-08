@@ -5,7 +5,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { Category } from '../models/category';
 import { IOrder } from '../interfaces/iorder';
 import { Pedidos } from '../interfaces/ipedidos';
-import { User } from '../interfaces/iuser';
+import { IUser } from '../interfaces/iuser';
 
 
 @Injectable({
@@ -22,7 +22,7 @@ export class ProductService {
   ordersRef: AngularFireList<IOrder> = null;
   platosRef: AngularFireList<IProduct> = null;
   catRef: AngularFireList<ICategory> = null;
-  userRef: AngularFireList<User>= null;
+  userRef: AngularFireList<IUser> = null;
 
   constructor(
     private afd: AngularFireDatabase,
@@ -46,6 +46,12 @@ export class ProductService {
     return this.afd.list<Pedidos>('orders', ref => ref.orderByChild('date').equalTo(fecha))
   }
 
+  //Obtener los pedidos por dia
+  getOrdersClie(email): AngularFireList<Pedidos> {
+    // return this.pedidosRef;
+    return this.afd.list<Pedidos>('orders', ref => ref.orderByChild('email').equalTo(email))
+  }
+
   //Obtener todos los productos
   getAll(): AngularFireList<IProduct> {
     return this.platosRef;
@@ -62,6 +68,11 @@ export class ProductService {
     return this.catRef;
   }
 
+  //Obtener todos los clientes
+  getAllClie(): AngularFireList<IUser> {
+    return this.userRef;
+  }
+
   //Obtener un producto
   getProduct(id: string) {
     return this.afd.object<IProduct>(`products/${id}`).valueChanges();
@@ -73,8 +84,8 @@ export class ProductService {
   }
 
   //Obtener datos del cliente
-  getCliente(email: string) : AngularFireList<User>{
-    return this.afd.list<User>('users', ref => ref.orderByChild('email').equalTo(email));
+  getCliente(email: string): AngularFireList<IUser> {
+    return this.afd.list<IUser>('users', ref => ref.orderByChild('email').equalTo(email));
   }
 
   //Agregar producto

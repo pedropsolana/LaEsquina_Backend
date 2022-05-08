@@ -8,6 +8,5 @@ export interface IProduct {
     quantity: number;
     showDetail: boolean;
     extras: any[];
-    getExtras,
     totalPrice
 }

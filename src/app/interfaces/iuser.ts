@@ -1,4 +1,5 @@
-export interface User {
+export interface IUser {
+    $key: string;
     email: string;
     direccion: string;
     telf: string;

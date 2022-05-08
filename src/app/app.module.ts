@@ -22,6 +22,7 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { ListPlatosComponent } from './components/list-platos/list-platos.component';
 import { CreatePlatosComponent } from './components/create-platos/create-platos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListClientesComponent } from './components/list-clientes/list-clientes.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PedidosComponent,
     ListPlatosComponent,
     CreatePlatosComponent,
+    ListClientesComponent,
    ],
   imports: [
     HttpClientModule,

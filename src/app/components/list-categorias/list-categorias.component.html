@@ -19,8 +19,8 @@
               <td>{{ c.name }}</td>
               <td><img [src]=" c.img" /></td>
               <td>
-                <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editCategoria/', c.key]"></i>
-                <i (click)="eliminarCategoria(c.id, c.key, c.nomimg)" class="fas fa-trash-alt fa-lg text-danger" ></i>
+                <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/editCategoria/', c.key]" title="Editar Categoria"></i>
+                <i (click)="eliminarCategoria(c.id, c.key, c.nomimg)" class="fas fa-trash-alt fa-lg text-danger" title="Eliminar Categoria"></i>
               </td>
             </tr>
           </tbody>
