@@ -29,6 +29,7 @@ export class ListClientesComponent implements OnInit {
     this.displayStyle = "block";
     this.cliente= nombre+" "+apellidos;
   }
+  
   closePopup() {
     this.displayStyle = "none";
   }
